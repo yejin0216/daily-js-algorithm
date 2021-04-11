@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            //Math 함수 활용 능력, 최솟값
+            function solution(arr){
+                let sum = 0;
+                let min = Number.MAX_SAFE_INTEGER;
+                for ( let i=0, len=arr.length; i<len; i++ ) {
+                    let flag = arr[i]%2 == 1 ? true: false;
+                    if ( flag ) { //홀수일 때
+                        sum += arr[i];
+                        if ( min > arr[i] ) min = arr[i];
+                    }
+                }
+
+                console.log(sum);
+
+                return min;
+            }
+            
+            arr=[12, 77, 38, 33, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

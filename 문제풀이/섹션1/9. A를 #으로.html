@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            //문자열 탐색
+            function solution(s){
+                let answer = s.replace(/A/g, "#"); //String은 값이 복사된다. Array는 주소만 복사됨. (얕은 복사)
+
+                // 문자열도 for문으로 돌려서 배열로 받을 수 있다.
+                // let answer = "";
+                // for ( let x of s ) {
+                //     if ( x === "A" ) {
+                //         answer += "#";
+                //     } else {
+                //         answer += x;
+                //     }
+                // }
+
+                return answer;
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

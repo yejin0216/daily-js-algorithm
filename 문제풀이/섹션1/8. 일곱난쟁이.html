@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            //완전 탐색(브루트포스)
+            function solution(arr){
+                let answer = arr; //얕은 복사
+                let sum = arr.reduce((a, b) => a+b, 0); //누적값 계산
+
+                for ( let i=0; i<8; i++ ) {
+                    for ( let j=i+1; j<9; j++ ) {
+                        if ( sum-(arr[i]+arr[j]) === 100 ) {
+                            arr.splice(j, 1);//뒤에것부터 지운다.
+                            arr.splice(i, 1);
+                        }
+                    }
+                }
+
+                // 나의 대답
+                // for ( let i=0, len=arr.length; i<len; i++ ) {
+                //     let sum = 0;
+                //     for ( let j=0, jlen=arr.length; j<jlen; j++ ) {
+                //         if ( i !== j ) {
+                //             sum = 0;
+                //             answer = [];
+                //             for ( let k=0, klen=arr.length; k<klen; k++  ) {
+                //                 if ( arr[k] != arr[i] && arr[k] != arr[j] ) {
+                //                     sum += arr[k];
+                //                     answer.push(arr[k]);
+                //                 }
+                //             }
+                //             if ( sum === 100 ) break;
+                //         }
+                //     }
+                //     if ( sum === 100 ) break;
+                // }
+
+                return answer;
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
