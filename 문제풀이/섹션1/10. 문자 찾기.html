@@ -7,12 +7,15 @@
         <script>
             function solution(s, t){
                 // 내가 푼 방식
-                let answer = 0;
-                for ( let x of s ) {
-                    if ( x === t ) {
-                        answer++;
-                    }
-                }
+                // let answer = 0;
+                // for ( let x of s ) {
+                //     if ( x === t ) {
+                //         answer++;
+                //     }
+                // }
+
+                //스터디 이후 풀게 된 방식
+                let answer = s.split(t).length-1;
 
                 return answer;
             }
