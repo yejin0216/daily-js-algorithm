@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = arr.slice();
+
+                for ( let i=1, len=arr.length; i<=len; i++ ) {
+                    let max = Math.max(...answer);
+                    let index = arr.indexOf(max);
+                    answer[index] = i;
+                }
+
+                return answer;
+            }
+
+            let arr=[87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

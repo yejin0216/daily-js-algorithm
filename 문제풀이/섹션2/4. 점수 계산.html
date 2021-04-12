@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer = 0;
+                let start = arr.indexOf(1); //처음으로 1이 나오는 자리
+
+                let count = 1;
+                for ( let i=start; i<arr.length; i++ ) {
+                    if ( arr[i] != 0 ) {
+                        answer += arr[i]*count;
+                        count++;
+                    } else {
+                        count = 1; //초기화
+                    }
+                }
+                   
+                return answer;
+            }
+
+            // let arr=[1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
