@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+
+                let answer = 0;
+                let sumArray = [];
+
+                //각 행의 합 (i행, j열)
+                for ( let i=0; i<arr.length; i++ ) {
+                    let rowSum = 0;
+                    for ( let j=0; j<arr.length; j++ ) {
+                        rowSum += arr[i][j];
+                    }
+                    sumArray.push(rowSum);
+                }
+
+                //각 열의 합
+                for ( let i=0; i<arr.length; i++ ) {
+                    let colSum = 0;
+                    for ( let j=0; j<arr.length; j++ ) {
+                        colSum += arr[j][i];
+                    }
+                    sumArray.push(colSum);
+                }
+
+                //두 대각선의 합
+                let x = 0;
+                for ( let i=0; i<arr.length; i++ ) {
+                    x += arr[i][i];
+                }
+                sumArray.push(x);
+
+                x = 0;
+                for ( let i=0; i<arr.length; i++ ) {
+                    x += arr[i][arr.length-i-1];
+                }
+                sumArray.push(x);
+
+                answer = Math.max(...sumArray);
+
+                return answer;
+            }
+
+            let arr=[[10, 13, 10, 12, 15],
+                [12, 39, 30, 23, 11],
+                [11, 25, 50, 53, 15],
+                [19, 27, 29, 37, 27],
+                [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
