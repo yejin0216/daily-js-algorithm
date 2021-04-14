@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer = [];
+                let arr = s.split("e");
+
+                for ( let i=0; i<arr.length; i++ ) {
+                    if ( arr[i] === "" ) {
+                        answer.push(0);
+                    } else {
+                        for ( let j=1, k=arr[i].length; j<=arr[i].length; j++, k-- ) {
+                            let value = Math.min(...[j, k]);
+                            answer.push(value);
+                        }
+                        if ( !(i == arr.length-2 && arr[i+1] == "") ) {
+                            answer.push(0);
+                        }
+                    }
+                }
+
+                return answer;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
