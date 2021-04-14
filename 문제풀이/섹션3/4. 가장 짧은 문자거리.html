@@ -7,26 +7,53 @@
         <script>
             function solution(s, t){
                 let answer = [];
-                let arr = s.split("e");
 
-                for ( let i=0; i<arr.length; i++ ) {
-                    if ( arr[i] === "" ) {
-                        answer.push(0);
+                // 강의들은 뒤 수정함
+                let distance = 0;
+                //앞에서부터
+                for ( let i=0, len=s.length; i<len; i++ ) {
+                    if ( s[i] === t ) {
+                        //같다
+                        distance = 0;
+                        answer.push(distance);
                     } else {
-                        for ( let j=1, k=arr[i].length; j<=arr[i].length; j++, k-- ) {
-                            let value = Math.min(...[j, k]);
-                            answer.push(value);
-                        }
-                        if ( !(i == arr.length-2 && arr[i+1] == "") ) {
-                            answer.push(0);
-                        }
+                        //다르다
+                        distance++;
+                        answer.push(distance);
                     }
                 }
+
+                //뒤에서부터
+                distance = 0;
+                for ( let j=s.length-1; j>=0; j-- ) {
+                    if ( s[j] != t) {
+                        distance++;
+                        let min = Math.min(distance, answer[j]);
+                        answer[j] = min;
+                    } else {
+                        distance = 0;
+                    }
+                }
+
+                // 내가 푼 것
+                // for ( let i=0; i<arr.length; i++ ) {
+                //     if ( arr[i] === "" ) {
+                //         answer.push(0);
+                //     } else {
+                //         for ( let j=1, k=arr[i].length; j<=arr[i].length; j++, k-- ) {
+                //             let value = Math.min(...[j, k]);
+                //             answer.push(value);
+                //         }
+                //         if ( !(i == arr.length-2 && arr[i+1] == "") ) {
+                //             answer.push(0);
+                //         }
+                //     }
+                // }
 
                 return answer;
             }
             
-            let str="teachermode";
+            let str="teacheremodee";
             console.log(solution(str, 'e'));
         </script>
     </body>
