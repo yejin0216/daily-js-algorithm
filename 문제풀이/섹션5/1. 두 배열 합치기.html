@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr1, arr2){
+              //투포인터 알고리즘 문제로 시간복잡도가 O(N)이어야한다.
+              //sort는 O(NlogN)이다.
+              let pi=0; //arr1
+              let pj=0; //arr2
+
+              let n = arr1.length;
+              let m = arr2.length
+
+              let answer = [];
+              while ( pi<n && pj<m ) {
+                if ( arr1[pi] < arr2[pj] ) {
+                  answer.push(arr1[pi]);
+                  pi++;
+                } else if (arr1[pi] === arr2[pj]) {
+                  answer.push(arr1[pi]);
+                  answer.push(arr2[pj]);
+                  pi++, pj++;
+                } else {
+                  answer.push(arr2[pj]);
+                  pj++;
+                }
+              }
+
+              //남은 더 긴 것을 처리한다.
+              while ( pi<n ) {
+                answer.push(arr1[pi]);
+                pi++;
+              }
+              while ( pj<m ) {
+                answer.push(arr2[pj]);
+                pj++;
+              }
+
+
+              // 오답
+              // let newArray = [].concat(arr1, arr2);
+              // let answer = newArray.slice();
+              //
+              // for ( let i=0; i<newArray.length; i++ ){ //나의 값
+              //   let downCount = 0;//나보다 작은 수의 갯수
+              //   let sameCount = 0;//나와 같은 수의 갯수
+              //   for ( let j=0; j<newArray.length; j++) {
+              //     if ( newArray[i] > newArray[j] ) {
+              //       downCount++;
+              //     } else if ( newArray[i] == newArray[j] ) {
+              //       sameCount++;
+              //     }
+              //   }
+              //   for ( let k=1; k<=sameCount; k++ ) {
+              //     answer[downCount+k] = newArray[i];
+              //   }
+              // }
+
+              return answer;
+            }
+            
+            let a=[1, 3, 5, 6, 7];
+            let b=[2, 3, 6, 7, 9];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
