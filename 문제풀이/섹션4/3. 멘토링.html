@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(test){
+                let answer = 0;
+
+                let length = arr[0].length;
+                let array = [];
+                for ( let i=0; i<length-1; i++ ) {
+                    let newArray=[];
+                    for ( let j=0; j<length-1; j++ ) {
+                        for ( let k=j; k<length-1; k++ ) {
+                            newArray.push([arr[i][j], arr[i][k+1]]);
+                        }
+                    }
+
+                    let checkArray = [];
+                    if ( array.length > 1 ) {
+                        for ( let k=0; k<array.length; k++ ) {
+                            // console.log(array[k])
+                            for ( let j=0; j<newArray.length; j++ ) {
+                                if ( array[k].join("") == newArray[j].join("") ) {
+                                    checkArray.push(newArray[j]);
+                                }
+                            }
+                        }
+                        array = checkArray;
+                    }  else {
+                        array = newArray;
+                    }
+                    answer = checkArray.length;
+                }
+
+                return answer;
+            }
+
+            let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
