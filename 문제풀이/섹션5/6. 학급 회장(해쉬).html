@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+          function solution(s){
+            let answer;
+
+            let map = new Map();
+            let max = Number.MIN_SAFE_INTEGER;
+            for ( let i=0; i<str.length; i++ ) {
+              if ( !map.has(str[i]) ) {
+                map.set(str[i], 1);
+              } else {
+                map.set(str[i], map.get(str[i])+1);
+                if ( max < map.get(str[i])) {
+                  max = map.get(str[i]);
+                  answer = str[i];
+                }
+              }
+            }
+
+            return answer;
+          }
+
+          let str="BACBACCACCBDEDE";
+          console.log(solution(str));
+        </script>
+    </body>
+</html>

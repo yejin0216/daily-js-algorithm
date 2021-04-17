@@ -11,9 +11,12 @@
 
                 let count = 1;
                 for ( let i=start; i<arr.length; i++ ) {
-                    if ( arr[i] != 0 ) {
-                        answer += arr[i]*count;
+                    if ( arr[i] === 1 ) {
+                        answer += count;
                         count++;
+                    // if ( arr[i] != 0 ) {
+                    //     answer += arr[i]*count;
+                    //     count++;
                     } else {
                         count = 1; //초기화
                     }

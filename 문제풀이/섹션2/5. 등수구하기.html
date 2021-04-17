@@ -8,10 +8,15 @@
             function solution(arr){
                 let answer = arr.slice();
 
-                for ( let i=1, len=arr.length; i<=len; i++ ) {
-                    let max = Math.max(...answer);
-                    let index = arr.indexOf(max);
-                    answer[index] = i;
+                //나보다 큰 수의 갯수의 나의 등수이다.
+                for ( let i=0, len=arr.length; i<len; i++ ) {
+                    let count = 1;
+                    for ( let j=0, jlen=arr.length; j<jlen; j++ ) {
+                        if ( arr[i] < arr[j] ) {
+                            count++;
+                        }
+                    }
+                    answer.push(count);
                 }
 
                 return answer;
