@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(size, arr){
+              let answer = [];
+
+              for ( let a=0; a<arr.length; a++ ) {
+                let input = arr[a];
+
+                //같은 값이 있는지 확인한다.
+                for ( let i=0; i<answer.length; i++ ) {
+                  let temp = answer[i];
+                  if ( temp === input ) {
+                    for ( let j=i-1; j>=0; j-- ) {
+                      answer[j+1] = answer[j]; //한칸씩 뒤로 밀려난다.
+                    }
+                    answer.shift();
+                    break;
+                  }
+                }
+
+                answer.unshift(input); //값을 넣는다.
+                //값의 길이가 size보다 크면 뒤에 자른다.
+                if ( answer.length > 4 ) {
+                  answer = answer.splice(0, 5);
+                }
+              }
+
+              return answer;
+            }
+
+            let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7];
+            console.log(solution(5, arr));
+        </script>
+    </body>
+</html>
+
+
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(size, arr){
+                let answer=[];
+                arr.forEach(x => {
+                    let pos=-1;
+                    for(let i=0; i<size; i++) if(x===answer[i]) pos=i;
+                    if(pos===-1){
+                       answer.unshift(x);
+                       if(answer.length>size) answer.pop();
+                    }
+                    else{
+                       answer.splice(pos, 1);
+                       answer.unshift(x);
+                    }
+
+                });
+
+                return answer;
+            }
+
+            let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7];
+            console.log(solution(5, arr));
+        </script>
+    </body>
+</html>
