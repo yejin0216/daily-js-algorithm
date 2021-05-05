@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, songs){
+                let answer;
+                let array = songs.slice();
+
+                let st = Math.max(...array); //시작값
+                let ed = 0; //종료값
+                array.forEach(item => {
+                  ed += item;
+                });
+
+                while(st <= ed) {
+                  let mid = Math.floor((st+ed)/2);
+                  let sum = 0;
+                  let counter = 1;
+                  for ( let i=0; i<array.length; i++ ) {
+                    if ( sum + array[i] <= mid ) {
+                      sum += array[i];
+                    } else {
+                      sum = array[i];
+                      counter++;
+                    }
+                  }
+                  if ( counter <= 3 ) {
+                    answer = mid;
+                    ed = mid-1;
+                  } else if (counter > 3) {
+                    st = mid+1;
+                  }
+                }
+
+                return answer;
+            }
+
+            let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+            console.log(solution(3, arr));
+        </script>
+    </body>
+</html>
