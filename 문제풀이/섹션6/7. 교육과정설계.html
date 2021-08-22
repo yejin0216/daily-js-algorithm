@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(need, plan){
+              let answer="YES";
+
+              // let array = "";
+              // for ( let i=0; i<need.length; i++ ) {
+              //   for ( let j=0; j<plan.length; j++ ) {
+              //     if ( need[i] === plan[j] ) {
+              //       array += need[i];
+              //       break;
+              //     }
+              //   }
+              // }
+
+              // if ( array !== a ) answer = "NO";
+              let n = need.split("");
+              let p = plan.split("");
+
+              for ( let j=0; j<p.length; j++ ) {
+                if ( p[j] === n[0] ) {
+                  n.push(n.shift());
+                }
+              }
+
+              if ( n.join("") !== need ) answer = "NO";
+
+              return answer;
+            }
+
+            let a="CBA";
+            let b="CBDAGE";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
