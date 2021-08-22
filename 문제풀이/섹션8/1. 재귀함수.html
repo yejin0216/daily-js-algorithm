@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // let index = 1;
+            // let array = [];
+            function solution(n){
+              function DFS(L) {
+                if ( L === 0 ) return; //종료
+                else {
+                  console.log(L);
+                  DFS(L-1);
+                }
+              }
+
+              DFS(n);
+            }
+            solution(3);
+        </script>
+    </body>
+</html>

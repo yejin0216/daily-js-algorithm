@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n) {
+              let answer = "";
+              function dfs(value) {
+                // 재귀의 종착점을 적는다.
+                if (value === 1) {
+                  answer = `1${answer}`;
+                  return;
+                }
+                answer = `${value % 2}${answer}`;
+                dfs(Math.floor(value / 2));
+              }
+              dfs(n);
+              return answer;
+            }
+
+            console.log(solution(11));
+        </script>
+    </body>
+</html>
