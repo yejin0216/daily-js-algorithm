@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            /**
+             * 전위 : 부 > 왼 > 오 
+             * 중위 : 왼 > 부 > 오
+             * 후위 : 왼 > 오 > 부 
+             */
+            function solution(v){
+                let answer; 
+                function dfs(v) {
+                    if ( v > 7 ) {
+                        // 재귀의 종착지 
+                        return; 
+                    } else {
+                        // 재귀가 뻗는 영역
+                        // 전위 순회  
+                        // console.log(v) 
+                        dfs(v*2); // 왼쪽
+                        // 중위 순회  
+                        // console.log(v) 
+                        dfs(v*2+1); // 오른쪽 
+                        // 후위 순회  
+                        // console.log(v) 
+                    }
+                }
+                dfs(v); 
+                return answer;    
+            }
+
+            solution(1);
+        </script>
+    </body>
+</html>
