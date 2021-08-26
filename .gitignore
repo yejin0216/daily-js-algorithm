@@ -1,3 +1,7 @@
+# settings
 .idea
+.vscode
+
+# etc
 *.pdf
 문제풀이/강의자료
