@@ -25,6 +25,7 @@ var solution = function(isBadVersion) {
             }
         }
 
+        // TODO 검증 없이 startIndex를 그냥 answer라고 생각함.
         return startIndex;
     };
 };

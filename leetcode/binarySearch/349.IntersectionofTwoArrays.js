@@ -10,11 +10,13 @@ var intersection = function(nums1, nums2) {
 
     for ( let i=0; i<nums1Copy.length; i++ ) {
         const target = nums1Copy[i];
+        // TODO low, high를 for 문 밖에 선언해서 오류 발생했었음.
         let low = 0;
         let high = nums2Copy.length-1;
         while ( low <= high ) {
             const mid = Math.floor((low+high)/2);
             if ( nums2Copy[mid] === target ) {
+                // TODO 조건문 안넣어서 오류 발생했었음.
                 if ( result.length === 0 || (result.length >= 1 && result[result.length-1] !== target)) result.push(target);
                 break;
             } else if ( nums2Copy[mid] < target ) {
