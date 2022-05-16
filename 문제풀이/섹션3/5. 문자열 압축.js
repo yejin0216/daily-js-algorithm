@@ -4,7 +4,7 @@ function solution(s){
 
     let result = "";
     let prevStr = "";
-    let prevCount = 0;
+    let prevCount = 1;
 
     for ( const str of sArray ) {
         if ( str !== prevStr ) {
