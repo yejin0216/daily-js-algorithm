@@ -13,11 +13,11 @@ function solution(arr1, arr2) {
             p1++;
             p2++;
         } else if ( a1[p1] > a2[p2] ) {
-            while ( a2[p2] < a1[p1] ) {
+            while ( a2[p2] < a1[p1] ) { // 작은 쪽을 증가시킨다.
                 p2++;
             }
         } else {
-            while ( a2[p2] > a1[p1] ) {
+            while ( a2[p2] > a1[p1] ) { // 작은 쪽을 증가시킨다.
                 p1++;
             }
         }
