@@ -1,0 +1,22 @@
+{
+  "name": "daily-js-algorithm",
+  "version": "1.0.0",
+  "description": "자바스크립트를 활용한 알고리즘 문제풀이",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yejin0216/daily-js-algorithm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yejin0216/daily-js-algorithm/issues"
+  },
+  "homepage": "https://github.com/yejin0216/daily-js-algorithm#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
