@@ -4,35 +4,28 @@
  * @return {boolean}
  */
 var isIsomorphic = function (s, t) {
-  const map = new Map();
-  const reverseMap = new Map();
+  const sMap = new Map();
+  const tMap = new Map();
 
   const sArray = s.split("");
   const tArray = t.split("");
 
   for (let i = 0; i < sArray.length; i++) {
-    if (!map.has(sArray[i])) {
-      map.set(sArray[i], tArray[i]);
-    } else {
-      if (map.get(sArray[i]) !== tArray[i]) {
-        return false;
-      }
-    }
-    if (!reverseMap.has(tArray[i])) {
-      reverseMap.set(tArray[i], sArray[i]);
-    } else {
-      if (reverseMap.get(tArray[i]) !== sArray[i]) {
-        return false;
-      }
+    const str = sArray[i];
+    const ttr = tArray[i];
+
+    if (!sMap.has(str) && !tMap.has(ttr)) {
+      sMap.set(str, ttr);
+      tMap.set(ttr, str);
+    } else if (!(sMap.get(str) === ttr && tMap.get(ttr) === str)) {
+      return false;
     }
   }
-
-  if (map.size !== reverseMap.size) return false;
 
   return true;
 };
 
-console.log(isIsomorphic("eggff", "addg"));
+console.log(isIsomorphic("eggg", "addg"));
 console.log(isIsomorphic("eggg", "adda"));
 console.log(isIsomorphic("egg", "add"));
 console.log(isIsomorphic("foo", "bar"));
