@@ -21,7 +21,7 @@ var topKFrequent = function (words, k) {
 
   const sorted = array.sort((a, b) => {
     if (a[1] === b[1]) {
-      return a > b ? 1 : -1;
+      return a[0].localeCompare(b[0]); // 알파벳 오름차순
     }
     return b[1] - a[1];
   });
