@@ -1,4 +1,5 @@
 /**
+ * 길이를 재는 문제이다. ㄴ
  * @param {string} s
  * @return {number}
  */
